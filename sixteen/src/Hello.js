@@ -5,11 +5,11 @@ import Something from './Something'
 
 class Hello extends Component {
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         return (
-                <SocketHook>
-                    <Something />
-                </SocketHook>
+            <SocketHook>
+                <Something />
+            </SocketHook>
         );
     }
 }

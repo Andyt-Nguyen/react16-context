@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { SocketContext } from './SocketProvider'
 
 const obj = {
     name:'Andrew',
@@ -8,11 +9,12 @@ const obj = {
 class SocketHook extends Component {
     render() {
         const { children } = this.props
-        var childrenWithProps = React.Children.map(children, child => React.cloneElement(child, { obj }))
 
         return (
             <div>
-                { childrenWithProps }
+                <SocketContext.Consumer>
+                    {context => React.Children.map(children, child => React.cloneElement(child, { context })) }
+                </SocketContext.Consumer>
             </div>
         )
     }

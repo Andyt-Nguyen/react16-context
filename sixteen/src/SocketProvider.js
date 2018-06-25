@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export const SocketContext = React.createContext('Im the value my friend please come get me')
+export const SocketContext = React.createContext()
 
 class SocketProvider extends Component {
 
