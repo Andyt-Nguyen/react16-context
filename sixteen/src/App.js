@@ -1,16 +1,23 @@
 import React, { Component } from 'react'
-import SocketProvider from './SocketProvider'
-import Routes from './Routes'
+import Hello from './Hello'
 
-// Import a provider and rap that in the main root of your application
+export const AppContext = React.createContext()
+
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      name: "Andy",
+      lastName: "Nguyen"
+    }
+  }
+
   render() {
     return (
       <div>
-        <h1>I am the provider</h1>
-        <SocketProvider>
-          <Routes />          
-        </SocketProvider>
+        <AppContext.Provider value={this.state}>
+          <Hello />
+        </AppContext.Provider>
       </div>
     );
   }
