@@ -1,24 +1,30 @@
 import React, { Component } from 'react'
-import Hello from './Hello'
-
-export const AppContext = React.createContext()
-
+import Routes from './Routes'
+import { Link } from 'react-router-dom'
+import { AppProvider } from './AppProvider'
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      name: "Andy",
-      lastName: "Nguyen"
+      name:"Andrew",
+      lastName:"Nguyen",
+      age: 200
     }
   }
 
   render() {
     return (
       <div>
-        <AppContext.Provider value={this.state}>
-          <Hello />
-        </AppContext.Provider>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About Page</Link></li>
+        </ul>
+          <div>
+            <AppProvider value={this.state}>
+              <Routes />
+            </AppProvider>
+          </div>
       </div>
     );
   }
